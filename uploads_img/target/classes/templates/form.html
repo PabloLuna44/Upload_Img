@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:include="layouts/base_layout :: head">
+    <meta charset="UTF-8">
+    <title>Uploads Fotos</title>
+
+</head>
+<body>
+
+<div class="row justify-content-center">
+    <div class="col-md-4 mt-5">
+        <div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="card mt-5">
+            <div class="card-header text-center "><h4>Subida de Imagenes</h4></div>
+            <div class="card-body">
+
+                <form th:action="@{/}" th:object="${usuarios}" method="POST" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" th:field="*{nombre}" class="form-control"/>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Apellidos</label>
+                        <input type="text" th:field="*{apellidos}" class="form-control"/>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>email</label>
+                        <input type="text" th:field="*{email}" class="form-control"/>
+
+                    </div>
+
+                    <div class="row form-group">
+                        <input type="file" name="file" class="m-2"/>
+
+                    </div>
+                    <button type="submit" class="btn btn-success">Guardar</button>
+
+                </form>
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="m-5">
+        <a th:href="@{/listar}"> <button class="btn btn-primary">Ver foto</button> </a>
+    </div>
+
+</div>
+
+</body>
+</html>
